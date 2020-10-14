@@ -14,7 +14,8 @@ Here I'm recreating task manager project while learning it....
   * command: ng serve
 * Now create a component for task view using command 
   * command : ng g c pages/task-view   (
-    where pages = folder name 
-          task-view = component name
+    where, pages = folder name 
+           task-view = component name
    
-* Then go to app-routing.module.ts file and set the route
+* Then go to app-routing.module.ts file and set the route or path of task-view component 
+* Now go to task-view.component.html file and write the code for task view
