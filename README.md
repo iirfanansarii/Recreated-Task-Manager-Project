@@ -18,4 +18,5 @@ Here I'm recreating task manager project while learning it....
            task-view = component name
    
 * Then go to app-routing.module.ts file and set the route or path of task-view component 
-* Now go to task-view.component.html file and write the code for task view
+* Now go to task-view.component.html file and write the code for task view using bulma and for styling go to task-view.component.scss file 
+
