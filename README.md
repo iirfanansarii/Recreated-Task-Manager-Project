@@ -1,5 +1,5 @@
-# Build Task Manager Project Interface 🚀🚀
-Here i've created task manager project interface only..
+# Created Task Manager Project Interface 🚀🚀
+Here i've created task manager project interface using angular ..
 
 ## To Do:
 * Create an angualr project using command line
