@@ -1,5 +1,5 @@
 # Build Task Manager Project Interface 🚀🚀
-Here I'm recreating task manager project while learning it....
+Here i've created task manager project interface only..
 
 ## To Do:
 * Create an angualr project using command line
