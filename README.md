@@ -1,3 +1,3 @@
 # Created REST API For Task Manager Project
-_ Note: The db fodler is inside api  folder_
+_Note: The db fodler is inside api folder_
 
