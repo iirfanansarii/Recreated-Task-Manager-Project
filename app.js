@@ -14,6 +14,20 @@ const { List, Task } = require("./db/models");
 // Load middleware
 app.use(bodyParser.json());
 
+//CORS HEADERS MIDDLEWARE
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Methods",
+    "GET, POST, HEAD, OPTIONS, PUT, PATCH, DELETE"
+  );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, x-access-token, x-refresh-token, _id"
+  );
+  next();
+});
+
 /* ROUTE HANDLERS */
 
 /* LIST ROUTES */
@@ -62,8 +76,8 @@ app.patch("/lists/:id", (req, res) => {
       $set: req.body,
     }
   ).then(() => {
-    res.sendStatus(2000);
-  });
+    res.send({ message: "updated successfully" });
+  })
 });
 
 /**
@@ -91,17 +105,15 @@ app.get("/lists/:listId/tasks", (req, res) => {
   });
 });
 
-
 // Another method to get all task but we didn't use this method in this project
 app.get("/lists/:listId/task/:taskId", (req, res) => {
-Task.findOne({
-  _id: req.params.taskId,
-  _listId:req.params.listId
-}).then((task) => {
-  res.send(task);
+  Task.findOne({
+    _id: req.params.taskId,
+    _listId: req.params.listId,
+  }).then((task) => {
+    res.send(task);
+  });
 });
-});
-
 
 /**
  * POST /lists/:listId/tasks
@@ -116,7 +128,7 @@ app.post("/lists/:listId/tasks", (req, res) => {
   });
   newTask.save().then((newTaskDoc) => {
     res.send(newTaskDoc);
-  })
+  });
 });
 
 /**
@@ -124,7 +136,7 @@ app.post("/lists/:listId/tasks", (req, res) => {
  * Purpose: Update an existing task
  * here we are updating list data by using task data or using their id's
  */
-app.patch("/lists/:listId/tasks/:taskId",  (req, res) => {
+app.patch("/lists/:listId/tasks/:taskId", (req, res) => {
   Task.findOneAndUpdate(
     {
       _id: req.params.taskId,
@@ -134,7 +146,7 @@ app.patch("/lists/:listId/tasks/:taskId",  (req, res) => {
       $set: req.body,
     }
   ).then(() => {
-    res.send(200);
+    res.send({ message: "updated successfully" });
   });
 });
 
@@ -142,17 +154,14 @@ app.patch("/lists/:listId/tasks/:taskId",  (req, res) => {
  * DELETE /lists/:listId/tasks/:taskId
  * Purpose: Delete a task
  */
-app.delete('/lists/:listId/tasks/:taskId',  (req, res) => {
-
-      Task.findOneAndRemove({
-                _id: req.params.taskId,
-                _listId: req.params.listId
-            }).then((removedTaskDoc) => {
-                res.send(removedTaskDoc);
-    })
+app.delete("/lists/:listId/tasks/:taskId", (req, res) => {
+  Task.findOneAndRemove({
+    _id: req.params.taskId,
+    _listId: req.params.listId,
+  }).then((removedTaskDoc) => {
+    res.send(removedTaskDoc);
+  });
 });
-
-
 
 app.get("/", (req, res) => {
   res.send("hello world!");
@@ -161,5 +170,3 @@ app.get("/", (req, res) => {
 app.listen(3000, () => {
   console.log("Server is listening on port 3000");
 });
-
-
