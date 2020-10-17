@@ -1,17 +1,8 @@
 <router-outlet></router-outlet>
-<!-- 
- *Before we created rest api now we will connect angular frontend to REST API .   
- -->
-<!--Step by step
-* Open frontend angular project and serve or run    
-* Create a new service  call task inside frontend using command 
-  * command: ng generate service task
-* Task service will be responsible for modifying our  data  and go to task.service.ts file to read the notes of this file .
-* To create a list we need to send web request and for that we are going to create a new service where we will put all http web request
-  * command : ng generate service webRequest
-* Now go to webRquest.service.ts file and define all method
-* Go to task.service.ts file and and define WebRequestService and payload
-* Go to task-view.component.html and add event handler to create new list at new list button 
-* Now go to task-view.component.ts file and create that method that event i.e createNewList
-* Got app.module.ts file and import client module 
+
+<!-- Step By Step
+ * Crate a new list component using command line
+ * Go to app-routing.module.ts file and add path for new-list component
+ * Now write code in new-list.component.html and new-list.component.scss to design new-list interface
+ * In new-list define a button  and text input and a  create button and when button click the text will pass to createNewList method in task service and it will create a new list
  -->
