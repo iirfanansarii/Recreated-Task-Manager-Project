@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // import { ActivatedRoute } from '@angular/router';
 import { TaskService } from 'src/app/task.service';
 import { Task } from 'src/app/models/task.model';
-import { ActivatedRoute, Params, Router} from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-task',
@@ -11,7 +11,11 @@ import { ActivatedRoute, Params, Router} from '@angular/router';
 })
 export class NewTaskComponent implements OnInit {
   //below injecting task service into constructor as we do always
-  constructor( private taskService: TaskService, private route: ActivatedRoute,private router:Router) {}
+  constructor(
+    private taskService: TaskService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   listId: string;
 
